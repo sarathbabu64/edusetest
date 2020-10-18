@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
@@ -17,7 +18,9 @@ public class NewTest2 {
   public void launch() {
 	  
 	    System.setProperty("webdriver.chrome.driver", "/home/ubuntu/chromedriver");
-	    driver = new ChromeDriver();
+	    ChromeOptions options = new ChromeOptions();
+	    options.setExperimentalOption("useAutomationExtension", false);
+	    driver = new ChromeDriver(options);
 	    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	    driver.get("https://facebook.com");
 
