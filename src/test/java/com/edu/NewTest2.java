@@ -16,7 +16,7 @@ public class NewTest2 {
   @BeforeMethod
   public void launch() {
 	  
-	    System.setProperty("webdriver.chrome.driver", "chromedriver");
+	    System.setProperty("webdriver.chrome.driver", "/home/ubuntu/chromedriver");
 	    driver = new ChromeDriver();
 	    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	    driver.get("https://facebook.com");
