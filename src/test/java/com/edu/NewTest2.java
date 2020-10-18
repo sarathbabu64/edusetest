@@ -24,14 +24,6 @@ public class NewTest2 {
 	  }
   
   @Test
-  public void verifyurl() {
-	  
-	    String x = driver.getCurrentUrl();
-	    System.out.println(x);
-	    //Assert.assertEquals(x, "https://www.facebook.com/");
-  }
-  
-  @Test
   public void verifytitle() {
 	  
         String a = driver.getTitle();
