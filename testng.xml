@@ -3,7 +3,6 @@
 <suite name="sampleapp-test-Suite">
   <test thread-count="5" name="sampleapp-tests">
     <classes>
-      <class name="com.edu.NewTest1"/>
       <class name="com.edu.NewTest2"/>
     </classes>
   </test> <!-- sampleapp-tests -->
