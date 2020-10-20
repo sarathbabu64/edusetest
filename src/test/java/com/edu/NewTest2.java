@@ -17,7 +17,7 @@ public class NewTest2 {
 	@BeforeMethod
 	public void startChrome() {
 		System.setProperty("webdriver.chrome.driver", 
-			"chromedriver");
+			"/home/ubuntu/chromedriver");
 		//ChromeOptions options = new ChromeOptions();
 
 		driver = new ChromeDriver();
