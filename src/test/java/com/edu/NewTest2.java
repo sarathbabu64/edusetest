@@ -17,6 +17,18 @@ public class NewTest2 {
 	@BeforeMethod
 	public void startChrome() {
 		System.setProperty("webdriver.chrome.driver", 
+			"chromedriver");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
+
+		driver = new ChromeDriver(options);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.get("https://www.google.com");
+	}
+	/*public void startChrome() {
+		System.setProperty("webdriver.chrome.driver", 
 			"/home/ubuntu/chromedriver");
 		//ChromeOptions options = new ChromeOptions();
 
@@ -24,7 +36,7 @@ public class NewTest2 {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.get("https://www.google.com");
-	}
+	}*/
 
 	@Test
 	public void MyFirstTestNGTestCase() throws InterruptedException {
