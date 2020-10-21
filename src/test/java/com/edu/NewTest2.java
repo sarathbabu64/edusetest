@@ -17,7 +17,7 @@ public class NewTest2 {
 	@BeforeMethod
 	public void startChrome() {
 		System.setProperty("webdriver.chrome.driver", 
-			"/home/ubuntu/chromedriver");
+			"chromedriver");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		options.addArguments("--no-sandbox");
@@ -25,68 +25,35 @@ public class NewTest2 {
 		driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		driver.get("https://www.google.com");
+		driver.get("http://3.137.175.129:8081/");
 	}
-	/*public void startChrome() {
-		System.setProperty("webdriver.chrome.driver", 
-			"/home/ubuntu/chromedriver");
-		//ChromeOptions options = new ChromeOptions();
-
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		driver.get("https://www.google.com");
-	}*/
-
+	
 	@Test
 	public void MyFirstTestNGTestCase() throws InterruptedException {
 		String title = driver.getTitle();
-		System.out.print("Current page title is : " + title);
+		System.out.println("Current page title is : " + title);
 
-		/*WebElement user = driver.findElement(By.name("userName"));
-		user.sendKeys("test");
-		WebElement pwd = driver.findElement(By.name("password"));
-		pwd.sendKeys("test");
-		WebElement signin = driver.findElement(By.name("login"));
-		signin.click();*/
+		WebElement linkByText = driver.findElement(By.linkText("About Us")); 
+		linkByText.click();
+		
+		String aboutUsText = "This is about page. Lorem Ipsum Dipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+
+		WebElement paragragh = driver.findElement(By.id("PID-ab2-pg"));
+
+		if(paragragh.getText().equals(aboutUsText)) {
+			System.out.println("\n'Text Verified Successfully!!!");
+		}
 
 		Thread.sleep(1000);
 
-		System.out.print("\n'SUCCESSFUL EXECUTION!!!");
+		System.out.println("\n'SUCCESSFUL EXECUTION!!!");
 	}
 
-
+	
 
 	@AfterMethod
 	public void cleaupProc() {
 		System.out.print("\nBrowser close");
 		driver.close();
 	}
-  /*@BeforeMethod
-  public void launch() {
-	  
-	    System.setProperty("webdriver.chrome.driver", "/home/ubuntu/chromedriver");
-	    ChromeOptions options = new ChromeOptions();
-	    options.setExperimentalOption("useAutomationExtension", false);
-	    driver = new ChromeDriver(options);
-	    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	    driver.get("https://facebook.com");
-
-	  }
-  
-  @Test
-  public void verifytitle() {
-	  
-        String a = driver.getTitle();
-        System.out.println(a);
-        //Assert.assertEquals(a, "Facebook");
-	//System.out.println("Test Successful.");    
-  }
-  
-  @AfterMethod
-  public void close() {
-	  
-	  driver.close();
-  }*/
-
 }
