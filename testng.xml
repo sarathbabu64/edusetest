@@ -3,7 +3,7 @@
 <suite name="sampleapp-test-Suite">
   <test thread-count="5" name="sampleapp-tests">
     <classes>
-      <class name="com.edu.NewTest2"/>
+      <class name="com.edu.PhpAppTest"/>
     </classes>
   </test> <!-- sampleapp-tests -->
 </suite> <!-- sampleapp-test-Suite -->
